@@ -5,13 +5,18 @@
 #include "Scenes.h"
 #include <eggxlib.h>
 #include <cstdio>
+#include "SevenSeg.h"
 
 Scenes::Scenes() {
     eggx_gsetinitialattributes(DISABLE, BOTTOM_LEFT_ORIGIN);
+    eggx_gsetinitialattributes(DISABLE, SCROLLBAR_INTERFACE);
+    eggx_gsetinitialattributes(DISABLE, OVERRIDE_REDIRECT);
     eggx_ggetdisplayinfo(nullptr,&width,&height);
     win = eggx_gopen(width,height);
     eggx_layer(win,0,1);
     eggx_gclr(win);
+
+    mainSeg = new SevenSeg(win,5,0xFFFFFF);
 }
 
 Scenes::~Scenes() {
@@ -22,10 +27,6 @@ Scenes::~Scenes() {
 
 void Scenes::flush() const {
     eggx_copylayer(win,1,0);
-}
-
-void Scenes::draw7seg(int x, int y, int num) {
-
 }
 
 void Scenes::setupTimer(int millsec){
