@@ -11,6 +11,7 @@ private:
     int scale{};
     int color{};
 
+    void resize(double* xlist, double* ylist, int x, int y) const;
     void drawA(int x, int y) const;
     void drawB(int x, int y) const;
 public:

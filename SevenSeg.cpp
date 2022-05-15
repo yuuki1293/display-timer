@@ -11,6 +11,13 @@ SevenSeg::SevenSeg(int win, int scale, int color) {
     this->color = color;
 }
 
+void SevenSeg::resize(double *xlist, double *ylist, int x, int y) const {
+    for (int i = 0; i < 6; i++) {
+        xlist[i] = (xlist[i] + x) * scale;
+        ylist[i] = (ylist[i] + y) * scale;
+    }
+}
+
 void SevenSeg::drawA(int x, int y) const {
     double xlist[6] = {4, 6, 16, 18, 16, 6};
     double ylist[6] = {2, 0, 0 , 2 , 4 , 4};
@@ -24,4 +31,3 @@ void SevenSeg::drawA(int x, int y) const {
 void SevenSeg::drawB(int x, int y) const {
 
 }
-
