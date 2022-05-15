@@ -82,6 +82,10 @@ void SevenSeg::drawpart(int x, int y, int a, int b, int c, int d, int e, int f, 
     //if (h) drawH(x, y);
 }
 
+void SevenSeg::draw0(int x, int y) const {
+    drawpart(x, y, 1, 1, 1, 1, 1, 1, 0, 0);
+}
+
 void SevenSeg::draw1(int x, int y) const {
     drawpart(x, y, 0, 1, 1, 0, 0, 0, 0, 0);
 }

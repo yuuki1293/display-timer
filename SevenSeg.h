@@ -20,6 +20,7 @@ private:
     void drawF(int x, int y) const;
     void drawG(int x, int y) const;
     void drawH(int x, int y) const;
+    void draw0(int x, int y) const;
     void draw1(int x, int y) const;
     void draw2(int x, int y) const;
     void draw3(int x, int y) const;
