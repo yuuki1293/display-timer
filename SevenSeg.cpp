@@ -121,3 +121,40 @@ void SevenSeg::draw8(int x, int y) const {
 void SevenSeg::draw9(int x, int y) const {
     drawpart(x, y, 1, 1, 1, 1, 1, 0, 1, 0);
 }
+
+void SevenSeg::draw(int x, int y, int num) const {
+    switch (num) {
+        case 0:
+            draw0(x, y);
+            break;
+        case 1:
+            draw1(x, y);
+            break;
+        case 2:
+            draw2(x, y);
+            break;
+        case 3:
+            draw3(x, y);
+            break;
+        case 4:
+            draw4(x, y);
+            break;
+        case 5:
+            draw5(x, y);
+            break;
+        case 6:
+            draw6(x, y);
+            break;
+        case 7:
+            draw7(x, y);
+            break;
+        case 8:
+            draw8(x, y);
+            break;
+        case 9:
+            draw9(x, y);
+            break;
+        default:
+            break;
+    }
+}

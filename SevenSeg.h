@@ -34,6 +34,9 @@ public:
     SevenSeg(int win, int scale, int color);
 
     void drawpart(int x, int y, int a, int b, int c, int d, int e, int f, int g, int h) const;
+
+    ///<summary>num is a number from 0 to 9</summary>
+    void draw(int x, int y, int num) const;
 };
 
 
