@@ -89,3 +89,7 @@ void SevenSeg::draw1(int x, int y) const {
 void SevenSeg::draw2(int x, int y) const {
     drawpart(x, y, 1, 1, 0, 1, 1, 0, 1, 0);
 }
+
+void SevenSeg::draw3(int x, int y) const {
+    drawpart(x, y, 1, 1, 1, 1, 0, 0, 1, 0);
+}
