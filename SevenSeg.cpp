@@ -31,3 +31,10 @@ void SevenSeg::drawB(int x, int y) const {
     resize(xlist, ylist, x, y);
     eggx_fillpoly(win, xlist, ylist, 6, 0);
 }
+
+void SevenSeg::drawC(int x, int y) const {
+    double xlist[6] = {18, 20, 20, 18, 16, 16};
+    double ylist[6] = {19, 21, 31, 33, 31, 21};
+    resize(xlist, ylist, x, y);
+    eggx_fillpoly(win, xlist, ylist, 6, 0);
+}
