@@ -159,7 +159,7 @@ void SevenSeg::draw(int x, int y, int num) const {
     }
 }
 
-void SevenSeg::draw(int x, int y, int num, int digit, int zerofill) const {
+void SevenSeg::draw(int x, int y, int num, int digit, int zerofill = 0) const {
     bool first = true;
     for (int i = digit - 1; i >= 0; --i) {
         if(num % 10 || first || zerofill)

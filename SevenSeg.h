@@ -9,7 +9,6 @@ class SevenSeg {
 private:
     int win{};
     int scale{};
-    int color{};
 
     void resize(double* xlist, double* ylist, int x, int y) const;
     void drawA(int x, int y) const;
