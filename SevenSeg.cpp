@@ -19,15 +19,15 @@ void SevenSeg::resize(double *xlist, double *ylist, int x, int y) const {
 }
 
 void SevenSeg::drawA(int x, int y) const {
-    double xlist[6] = {4, 6, 16, 18, 16, 6};
+    double xlist[6] = {3, 5, 15, 17, 15, 5};
     double ylist[6] = {2, 0, 0 , 2 , 4 , 4};
-    for (int i = 0; i < 6; i++) {
-        xlist[i] = (xlist[i] + x) * scale;
-        ylist[i] = (ylist[i] + y) * scale;
-    }
+    resize(xlist, ylist, x, y);
     eggx_fillpoly(win, xlist, ylist, 6, 0);
 }
 
 void SevenSeg::drawB(int x, int y) const {
-
+    double xlist[6] = {18, 20, 20, 18, 16, 16};
+    double ylist[6] = {3,  5,  15, 17, 15, 5};
+    resize(xlist, ylist, x, y);
+    eggx_fillpoly(win, xlist, ylist, 6, 0);
 }
