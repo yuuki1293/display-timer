@@ -5,6 +5,7 @@
 int main() {
     auto scenes = new Scenes();
     scenes->setupTimer(1000);
-    sleep(10);
+    printf("finish.\n");
+    sleep(3);
     delete scenes;
 }
