@@ -16,6 +16,7 @@ private:
     void drawB(int x, int y) const;
     void drawC(int x, int y) const;
     void drawD(int x, int y) const;
+    void drawE(int x, int y) const;
 public:
     SevenSeg(int win, int scale, int color);
 
