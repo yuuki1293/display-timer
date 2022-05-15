@@ -66,3 +66,22 @@ void SevenSeg::drawG(int x, int y) const {
     resize(xlist, ylist, x, y);
     eggx_fillpoly(win, xlist, ylist, 6, 0);
 }
+
+void SevenSeg::drawH(int x, int y) const {
+
+}
+
+void SevenSeg::drawpart(int x, int y, int a, int b, int c, int d, int e, int f, int g, int h) const {
+    if (a) drawA(x, y);
+    if (b) drawB(x, y);
+    if (c) drawC(x, y);
+    if (d) drawD(x, y);
+    if (e) drawE(x, y);
+    if (f) drawF(x, y);
+    if (g) drawG(x, y);
+    //if (h) drawH(x, y);
+}
+
+void SevenSeg::draw1(int x, int y) const {
+    drawpart(x, y, 0, 1, 1, 0, 0, 0, 0, 0);
+}
