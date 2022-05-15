@@ -37,6 +37,8 @@ public:
 
     ///<summary>num is a number from 0 to 9</summary>
     void draw(int x, int y, int num) const;
+
+    void draw(int x, int y, int num, int digit, int zerofill) const;
 };
 
 
