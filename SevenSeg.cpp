@@ -52,3 +52,10 @@ void SevenSeg::drawE(int x, int y) const {
     resize(xlist, ylist, x, y);
     eggx_fillpoly(win, xlist, ylist, 6, 0);
 }
+
+void SevenSeg::drawF(int x, int y) const {
+    double xlist[6] = {2,  4,  4,  2,  0,  0};
+    double ylist[6] = {3,  5,  15, 17, 15, 5};
+    resize(xlist, ylist, x, y);
+    eggx_fillpoly(win, xlist, ylist, 6, 0);
+}
