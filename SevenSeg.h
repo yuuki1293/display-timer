@@ -26,6 +26,8 @@ private:
     void draw4(int x, int y) const;
     void draw5(int x, int y) const;
     void draw6(int x, int y) const;
+    void draw7(int x, int y) const;
+    void draw8(int x, int y) const;
 public:
     SevenSeg(int win, int scale, int color);
 
