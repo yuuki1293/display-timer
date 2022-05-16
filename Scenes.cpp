@@ -7,6 +7,7 @@
 #include <valarray>
 #include <chrono>
 #include "SevenSeg.h"
+#include <string>
 
 using Clock = std::chrono::steady_clock;
 using std::chrono::time_point;
@@ -26,6 +27,12 @@ Scenes::Scenes() {
 
     mainSeg = SevenSeg(win, 15);
     subSeg = SevenSeg(win, 10);
+}
+
+Scenes::Scenes(const std::string& font_color, const std::string& back_color) : Scenes(){
+    eggx_newcolor(win,font_color.c_str());
+    eggx_gsetbgcolor(win,back_color.c_str());
+    eggx_gclr(win);
 }
 
 Scenes::~Scenes() {
