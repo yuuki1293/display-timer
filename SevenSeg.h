@@ -29,6 +29,7 @@ private:
     void draw8(int x, int y) const;
     void draw9(int x, int y) const;
 public:
+    SevenSeg();
     SevenSeg(int win, int scale);
 
     void drawpart(int x, int y, int a, int b, int c, int d, int e, int f, int g) const;
@@ -36,7 +37,7 @@ public:
     ///<summary>num is a number from 0 to 9</summary>
     void draw(int x, int y, int num) const;
 
-    void draw(int x, int y, int num, int digit, int zerofill) const;
+    void draw(int x, int y, int num, int digit, int zerofill = false) const;
 };
 
 
