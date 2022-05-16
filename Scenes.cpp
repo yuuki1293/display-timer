@@ -56,16 +56,19 @@ void Scenes::startTimer(int millsec, int digit) {
         time_point<Clock> now = Clock::now();
         milliseconds diff = duration_cast<milliseconds>(now - start);
         if(eggx_ggetch() >= 0) stop = true;
-        if(diff.count() >= millsec || stop) break;
+        if(stop) break;
+        if(diff.count() >= millsec){
+            eggx_gclr(win);
+            mainSeg.draw(29, 15, 0, digit);
+            subSeg.draw(130, 40, 0, 2, true);
+            flush();
+            break;
+        }
         eggx_gclr(win);
         mainSeg.draw(29, 15, (int)(millsec - diff.count()) / 1000, digit);
         subSeg.draw(130, 40, ((millsec - (int)diff.count()) / 10) % 100, 2, true);
         flush();
     }
-    eggx_gclr(win);
-    mainSeg.draw(29, 15, 0, digit);
-    subSeg.draw(130, 40, 0, 2, true);
-    flush();
 }
 
 void Scenes::resetTimer(int millsec) {
