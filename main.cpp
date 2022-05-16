@@ -1,11 +1,12 @@
 #include <iostream>
 #include <unistd.h>
 #include "Scenes.h"
+#include<ctime>
 
 int main() {
     auto scenes = new Scenes();
-    scenes->setupTimer(1000);
+    scenes->resetTimer(10000);
     printf("finish.\n");
-    sleep(3);
-    delete scenes;
+    //sleep(3);
+    while(true);
 }
