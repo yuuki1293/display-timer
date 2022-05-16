@@ -26,7 +26,7 @@ Scenes::Scenes() {
     eggx_gclr(win);
 
     mainSeg = SevenSeg(win, 15);
-    subSeg = SevenSeg(win, 10);
+    subSeg = SevenSeg(win, 9);
 }
 
 Scenes::Scenes(const std::string& font_color, const std::string& back_color) : Scenes(){
@@ -44,8 +44,9 @@ void Scenes::flush() const {
 }
 
 void Scenes::setupTimer(int millsec,int digit) {
-    mainSeg.draw(29,15,millsec/1000,digit);
-    subSeg.draw(130,40,millsec/10 % 100,2, true);
+    mainSeg.draw(400,200,millsec/1000,digit);
+    subSeg.draw(1200,410,millsec/10 % 100,2, true);
+    eggx_fillcirc(win,1125,700,30,30);
 
     flush();
     stop = false;
@@ -59,14 +60,15 @@ void Scenes::startTimer(int millsec, int digit) {
         if(stop) break;
         if(diff.count() >= millsec){
             eggx_gclr(win);
-            mainSeg.draw(29, 15, 0, digit);
+            mainSeg.draw(600, 300, 0, digit);
             subSeg.draw(130, 40, 0, 2, true);
             flush();
             break;
         }
         eggx_gclr(win);
-        mainSeg.draw(29, 15, (int)(millsec - diff.count()) / 1000, digit);
-        subSeg.draw(130, 40, ((millsec - (int)diff.count()) / 10) % 100, 2, true);
+        mainSeg.draw(400, 200, (int)(millsec - diff.count()) / 1000, digit);
+        subSeg.draw(1200, 410, ((millsec - (int)diff.count()) / 10) % 100, 2, true);
+        eggx_fillcirc(win,1125,700,30,30);
         flush();
     }
 }
