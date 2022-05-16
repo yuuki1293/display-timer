@@ -5,7 +5,6 @@
 #include "Scenes.h"
 #include <eggxlib.h>
 #include <valarray>
-#include <iostream>
 #include <chrono>
 #include "SevenSeg.h"
 
@@ -25,8 +24,8 @@ Scenes::Scenes() {
     eggx_layer(win, 0, 1);
     eggx_gclr(win);
 
-    mainSeg = SevenSeg(win, 7);
-    subSeg = SevenSeg(win, 4);
+    mainSeg = SevenSeg(win, 15);
+    subSeg = SevenSeg(win, 10);
 }
 
 Scenes::~Scenes() {
@@ -38,8 +37,8 @@ void Scenes::flush() const {
 }
 
 void Scenes::setupTimer(int millsec,int digit) {
-    mainSeg.draw(100,50,millsec/1000,digit);
-    subSeg.draw(150,70,(millsec/100) % 100,2);
+    mainSeg.draw(29,15,millsec/1000,digit);
+    subSeg.draw(130,40,millsec/10 % 100,2, true);
 
     flush();
     stop = false;
@@ -47,15 +46,19 @@ void Scenes::setupTimer(int millsec,int digit) {
 
 void Scenes::startTimer(int millsec, int digit) {
     while(true) {
-        eggx_msleep(100);
         time_point<Clock> now = Clock::now();
         milliseconds diff = duration_cast<milliseconds>(now - start);
         if(eggx_ggetch() >= 0) stop = true;
         if(diff.count() >= millsec || stop) break;
         eggx_gclr(win);
-        mainSeg.draw(100, 50, (int)(millsec - diff.count()) / 1000, digit);
+        mainSeg.draw(29, 15, (int)(millsec - diff.count()) / 1000, digit);
+        subSeg.draw(130, 40, ((millsec - (int)diff.count()) / 10) % 100, 2, true);
         flush();
     }
+    eggx_gclr(win);
+    mainSeg.draw(29, 15, 0, digit);
+    subSeg.draw(130, 40, 0, 2, true);
+    flush();
 }
 
 void Scenes::resetTimer(int millsec) {
