@@ -4,7 +4,6 @@
 
 #include "Scenes.h"
 #include <eggxlib.h>
-#include <cstdio>
 #include "SevenSeg.h"
 
 Scenes::Scenes() {
@@ -16,7 +15,7 @@ Scenes::Scenes() {
     eggx_layer(win, 0, 1);
     eggx_gclr(win);
 
-    mainSeg = new SevenSeg(win, 5, 0xFFFFFF);
+    mainSeg = new SevenSeg(win, 5);
 }
 
 Scenes::~Scenes() {

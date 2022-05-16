@@ -5,10 +5,9 @@
 #include "SevenSeg.h"
 #include <eggxlib.h>
 
-SevenSeg::SevenSeg(int win, int scale, int color) {
+SevenSeg::SevenSeg(int win, int scale) {
     this->win = win;
     this->scale = scale;
-    this->color = color;
 }
 
 void SevenSeg::resize(double *xlist, double *ylist, int x, int y) const {
@@ -67,11 +66,7 @@ void SevenSeg::drawG(int x, int y) const {
     eggx_fillpoly(win, xlist, ylist, 6, 0);
 }
 
-void SevenSeg::drawH(int x, int y) const {
-
-}
-
-void SevenSeg::drawpart(int x, int y, int a, int b, int c, int d, int e, int f, int g, int h) const {
+void SevenSeg::drawpart(int x, int y, int a, int b, int c, int d, int e, int f, int g) const {
     if (a) drawA(x, y);
     if (b) drawB(x, y);
     if (c) drawC(x, y);
@@ -79,47 +74,46 @@ void SevenSeg::drawpart(int x, int y, int a, int b, int c, int d, int e, int f, 
     if (e) drawE(x, y);
     if (f) drawF(x, y);
     if (g) drawG(x, y);
-    //if (h) drawH(x, y);
 }
 
 void SevenSeg::draw0(int x, int y) const {
-    drawpart(x, y, 1, 1, 1, 1, 1, 1, 0, 0);
+    drawpart(x, y, 1, 1, 1, 1, 1, 1, 0);
 }
 
 void SevenSeg::draw1(int x, int y) const {
-    drawpart(x, y, 0, 1, 1, 0, 0, 0, 0, 0);
+    drawpart(x, y, 0, 1, 1, 0, 0, 0, 0);
 }
 
 void SevenSeg::draw2(int x, int y) const {
-    drawpart(x, y, 1, 1, 0, 1, 1, 0, 1, 0);
+    drawpart(x, y, 1, 1, 0, 1, 1, 0, 1);
 }
 
 void SevenSeg::draw3(int x, int y) const {
-    drawpart(x, y, 1, 1, 1, 1, 0, 0, 1, 0);
+    drawpart(x, y, 1, 1, 1, 1, 0, 0, 1);
 }
 
 void SevenSeg::draw4(int x, int y) const {
-    drawpart(x, y, 0, 1, 1, 0, 0, 1, 1, 0);
+    drawpart(x, y, 0, 1, 1, 0, 0, 1, 1);
 }
 
 void SevenSeg::draw5(int x, int y) const {
-    drawpart(x, y, 1, 0, 1, 1, 0, 1, 1, 0);
+    drawpart(x, y, 1, 0, 1, 1, 0, 1, 1);
 }
 
 void SevenSeg::draw6(int x, int y) const {
-    drawpart(x, y, 1, 0, 1, 1, 1, 1, 1, 0);
+    drawpart(x, y, 1, 0, 1, 1, 1, 1, 1);
 }
 
 void SevenSeg::draw7(int x, int y) const {
-    drawpart(x, y, 1, 1, 1, 0, 0, 0, 0, 0);
+    drawpart(x, y, 1, 1, 1, 0, 0, 0, 0);
 }
 
 void SevenSeg::draw8(int x, int y) const {
-    drawpart(x, y, 1, 1, 1, 1, 1, 1, 1, 0);
+    drawpart(x, y, 1, 1, 1, 1, 1, 1, 1);
 }
 
 void SevenSeg::draw9(int x, int y) const {
-    drawpart(x, y, 1, 1, 1, 1, 0, 1, 1, 0);
+    drawpart(x, y, 1, 1, 1, 1, 0, 1, 1);
 }
 
 void SevenSeg::draw(int x, int y, int num) const {
