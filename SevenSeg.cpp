@@ -17,8 +17,8 @@ SevenSeg::SevenSeg(int win, int scale) {
 
 void SevenSeg::resize(double *xlist, double *ylist, int x, int y) const {
     for (int i = 0; i < 6; i++) {
-        xlist[i] = (xlist[i] + x) * scale;
-        ylist[i] = (ylist[i] + y) * scale;
+        xlist[i] = xlist[i] * scale + x;
+        ylist[i] = ylist[i] * scale + y;
     }
 }
 
@@ -162,7 +162,7 @@ void SevenSeg::draw(int x, int y, int num, int digit, int zerofill) const {
     bool first = true;
     for (int i = digit - 1; i >= 0; --i) {
         if (num % 10 || first || zerofill)
-            draw(x + i * 24, y, num % 10);
+            draw(x + i * 24 * scale, y, num % 10);
         num /= 10;
         first = false;
     }
