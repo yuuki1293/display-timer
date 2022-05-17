@@ -49,15 +49,13 @@ void Scenes::setupTimer(int millsec,int digit) {
     eggx_fillcirc(win,1125,700,30,30);
 
     flush();
-    stop = false;
 }
 
-void Scenes::startTimer(int millsec, int digit) {
+void Scenes::countdownTimer(int millsec, int digit) {
     while(true) {
         time_point<Clock> now = Clock::now();
         milliseconds diff = duration_cast<milliseconds>(now - start);
-        if(eggx_ggetch() >= 0) stop = true;
-        if(stop) break;
+        if(eggx_ggetch() >= 0) break;
         if(diff.count() >= millsec){
             eggx_gclr(win);
             mainSeg.draw(600, 300, 0, digit);
@@ -67,7 +65,22 @@ void Scenes::startTimer(int millsec, int digit) {
         }
         eggx_gclr(win);
         mainSeg.draw(400, 200, (int)(millsec - diff.count()) / 1000, digit);
-        subSeg.draw(1200, 410, ((millsec - (int)diff.count()) / 10) % 100, 2, true);
+        //subSeg.draw(1200, 410, ((millsec - (int)diff.count()) / 10) % 100, 2, true);
+        //eggx_fillcirc(win,1125,700,30,30);
+        flush();
+    }
+    startTimer(digit);
+}
+
+void Scenes::startTimer(int digit) {
+    start = Clock::now();
+    while(true){
+        time_point<Clock> now = Clock::now();
+        milliseconds diff = duration_cast<milliseconds>(now - start);
+        if(eggx_ggetch() >= 0) break;
+        eggx_gclr(win);
+        mainSeg.draw(400, 200, (int)diff.count() / 1000, digit);
+        subSeg.draw(1200, 410, (int)diff.count() / 10 % 100, 2, true);
         eggx_fillcirc(win,1125,700,30,30);
         flush();
     }
@@ -80,5 +93,5 @@ void Scenes::resetTimer(int millsec) {
     eggx_gsetnonblock(true);
     while (eggx_ggetch() < 0);
     start = Clock::now();
-    startTimer(millsec, digit);
+    countdownTimer(millsec, digit);
 }

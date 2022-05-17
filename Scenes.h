@@ -14,7 +14,6 @@ using std::chrono::time_point;
 
 class Scenes {
 private:
-    bool stop = false;
     SevenSeg mainSeg;
     SevenSeg subSeg;
     time_point<Clock> start;
@@ -26,7 +25,8 @@ private:
     void flush() const;
 
     void setupTimer(int millsec, int digit);
-    void startTimer(int millsec, int digit);
+    void countdownTimer(int millsec, int digit);
+    void startTimer(int digit);
 public:
     Scenes();
     Scenes(const std::string& font_color, const std::string& back_color);
