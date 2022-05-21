@@ -69,6 +69,7 @@ void Scenes::countdownTimer(int millsec, int digit) {
         //subSeg.draw(1200, 410, ((millsec - (int)diff.count()) / 10) % 100, 2, true);
         //eggx_fillcirc(win,1125,700,30,30);
         flush();
+        eggx_msleep(10);
     }
     startTimer(digit);
 }
@@ -84,6 +85,7 @@ void Scenes::startTimer(int digit) {
         subSeg.draw(1200, 410, (int)diff.count() / 10 % 100, 2, true);
         eggx_fillcirc(win,1125,700,30,30);
         flush();
+        eggx_msleep(10);
     }
 }
 
