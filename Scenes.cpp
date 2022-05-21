@@ -44,6 +44,7 @@ void Scenes::flush() const {
 }
 
 void Scenes::setupTimer(int millsec,int digit) {
+    eggx_gclr(win);
     mainSeg.draw(400,200,millsec/1000,digit);
     subSeg.draw(1200,410,millsec/10 % 100,2, true);
     eggx_fillcirc(win,1125,700,30,30);
